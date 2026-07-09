@@ -27,21 +27,22 @@ const __dirname = path.dirname(__filename);
 connectDB();
 
 const app = express();
-const configuredOrigins = (process.env.CORS_ORIGINS || '')
-  .split(',')
-  .map((origin) => origin.trim())
-  .filter(Boolean);
-const allowedOrigins = [
-  process.env.CLIENT_URL,
-  process.env.ADMIN_URL,
-  ...configuredOrigins,
-  'https://client-six-liard-52.vercel.app',
-  'https://admin-seven-pi-78.vercel.app'
-].filter(Boolean);
+const vercelSuffix = /\.vercel\.app$/i;
+const isOriginAllowed = (origin) => {
+  if (!origin) return true;
+  const allowed = [
+    process.env.CLIENT_URL,
+    process.env.ADMIN_URL,
+    ...(process.env.CORS_ORIGINS || '').split(',').map((o) => o.trim()).filter(Boolean)
+  ].filter(Boolean);
+  if (allowed.includes(origin)) return true;
+  if (vercelSuffix.test(origin)) return true;
+  return false;
+};
 
 app.use(cors({
   origin(origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    if (isOriginAllowed(origin)) return callback(null, true);
     return callback(new Error('Not allowed by CORS'));
   },
   credentials: true
