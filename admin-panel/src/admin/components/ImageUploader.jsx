@@ -26,7 +26,7 @@ export default function ImageUploader({ value, onChange }) {
     <div>
       <span className="label">Image</span>
       <div className="flex items-center gap-4">
-        {value && <img src={value} alt="" className="h-16 w-16 rounded-md object-cover" />}
+        {value && <img src={value} alt="" width="64" height="64" loading="lazy" className="h-16 w-16 rounded-md object-cover" />}
         <label className="btn-secondary cursor-pointer">
           {loading ? 'Uploading...' : 'Upload Image'}
           <input type="file" accept="image/jpeg,image/png,image/webp" onChange={upload} className="hidden" />

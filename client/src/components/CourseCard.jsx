@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
+import Img from './OptimizedImg.jsx';
 
 export default function CourseCard({ course }) {
   return (
     <article className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-      <img src={course.imageUrl || '/placeholder.svg'} alt={course.title} width="800" height="220" loading="lazy" className="h-48 w-full object-cover" />
+      <Img src={course.imageUrl || '/placeholder.svg'} alt={course.title} width="800" height="220" className="h-48 w-full object-cover" />
       <div className="p-5">
         <div className="flex items-center justify-between gap-3 text-xs font-semibold uppercase tracking-wide text-accent">
           <span>{course.category}</span>

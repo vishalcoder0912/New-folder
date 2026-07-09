@@ -1,6 +1,7 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import Img from './OptimizedImg.jsx';
 
 export default function Navbar({ settings }) {
   const [open, setOpen] = useState(false);
@@ -12,7 +13,7 @@ export default function Navbar({ settings }) {
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-3 font-semibold text-slate-950">
-          {settings?.logoUrl ? <img src={settings.logoUrl} alt={settings.siteName} width="36" height="36" loading="lazy" className="h-9 w-9 rounded object-cover" /> : <span className="grid h-9 w-9 place-items-center rounded bg-brand text-white">E</span>}
+          {settings?.logoUrl ? <Img src={settings.logoUrl} alt={settings.siteName} width="36" height="36" className="h-9 w-9 rounded object-cover" /> : <span className="grid h-9 w-9 place-items-center rounded bg-brand text-white">E</span>}
           <span>{settings?.siteName || 'EduNova'}</span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">

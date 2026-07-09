@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import ContactForm from '../components/ContactForm.jsx';
 import LoadingState from '../components/LoadingState.jsx';
 import { useFetch } from '../hooks/useFetch.js';
+import Img from '../components/OptimizedImg.jsx';
 
 export default function CourseDetailPage() {
   const { slug } = useParams();
@@ -23,7 +24,7 @@ export default function CourseDetailPage() {
             </div>
             <Link to="/contact" className="btn-primary mt-8">Request Consultation</Link>
           </div>
-          <img src={course.imageUrl} alt={course.title} width="800" height="600" loading="lazy" className="aspect-[4/3] rounded-lg object-cover shadow-soft" />
+          <Img src={course.imageUrl} alt={course.title} width="800" height="600" className="aspect-[4/3] rounded-lg object-cover shadow-soft" />
         </div>
       </section>
       <section className="py-12">
@@ -48,7 +49,7 @@ export default function CourseDetailPage() {
               <div className="admin-card mb-6">
                 <h3 className="font-semibold">Mentor</h3>
                 <div className="mt-4 flex gap-3">
-                  <img src={course.instructor.imageUrl} alt={course.instructor.name} width="56" height="56" loading="lazy" className="h-14 w-14 rounded-full object-cover" />
+                  <Img src={course.instructor.imageUrl} alt={course.instructor.name} width="56" height="56" className="h-14 w-14 rounded-full object-cover" />
                   <div>
                     <p className="font-semibold">{course.instructor.name}</p>
                     <p className="text-sm text-slate-600">{course.instructor.designation}</p>
