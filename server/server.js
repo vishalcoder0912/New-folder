@@ -59,6 +59,33 @@ app.get('/api/health', (_req, res) => {
   res.json({ success: true, message: 'EdTech CMS API is running' });
 });
 
+app.get('/api', (_req, res) => {
+  res.json({
+    success: true,
+    message: 'Welcome to EduNova CMS API',
+    version: '1.0.0',
+    environment: process.env.NODE_ENV || 'development',
+    endpoints: {
+      health: { method: 'GET', path: '/api/health', description: 'Health check' },
+      auth: { login: 'POST /api/auth/login', me: 'GET /api/auth/me', logout: 'POST /api/auth/logout' },
+      sections: 'GET/POST /api/sections — Manage page sections',
+      courses: 'GET/POST /api/courses — Manage courses',
+      events: 'GET/POST /api/events — Manage events',
+      blogs: 'GET/POST /api/blogs — Manage blog posts',
+      mentors: 'GET/POST /api/mentors — Manage mentors',
+      testimonials: 'GET/POST /api/testimonials — Manage testimonials',
+      faqs: 'GET/POST /api/faqs — Manage FAQs',
+      leads: 'GET/POST /api/leads — Manage contact leads',
+      media: 'GET/POST /api/media — Manage media uploads',
+      settings: 'GET/PUT /api/settings — Manage website settings',
+      adminUsers: 'CRUD /api/admin-users — Manage admin accounts'
+    },
+    database: 'MongoDB (Mongoose)',
+    storage: 'ImageKit (media CDN)',
+    authentication: 'JWT (JSON Web Tokens)'
+  });
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/sections', sectionRoutes);
 app.use('/api/courses', courseRoutes);
