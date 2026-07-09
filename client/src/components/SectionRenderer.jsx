@@ -46,7 +46,7 @@ export default function SectionRenderer({ section, datasets = {} }) {
             </div>
           </motion.div>
           <motion.div {...fade} className="relative">
-            <Img src={section.imageUrl} alt={section.title} width="800" height="600" className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft" />
+            <Img src={section.imageUrl} alt={section.title} width="800" height="600" fetchPriority="high" className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft" />
             <div className="absolute -bottom-5 left-5 right-5 grid grid-cols-3 gap-2 rounded-lg border border-slate-200 bg-white p-3 shadow-soft">
               {(section.cards || []).slice(0, 3).map((card) => (
                 <div key={card._id || card.title}>

@@ -1,8 +1,17 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    visualizer({
+      filename: 'dist/stats.html',
+      open: true,
+      gzipSize: true,
+      brotliSize: true
+    })
+  ],
   server: {
     port: 5173
   },
@@ -10,15 +19,17 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
+          react: ['react', 'react-dom', 'react-router-dom'],
           motion: ['framer-motion'],
-          ui: ['lucide-react']
+          icons: ['lucide-react'],
+          api: ['axios']
         }
       }
     },
     target: 'es2020',
     minify: 'esbuild',
     cssMinify: true,
-    sourcemap: false
+    sourcemap: false,
+    chunkSizeWarningLimit: 700
   }
 });
