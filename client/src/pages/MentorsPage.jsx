@@ -11,7 +11,7 @@ export default function MentorsPage() {
         <div className="mt-8 grid gap-6 md:grid-cols-4">
           {(data || []).map((mentor) => (
             <article key={mentor._id} className="rounded-lg border bg-white p-5 shadow-sm">
-              <img src={mentor.imageUrl} alt={mentor.name} className="aspect-square w-full rounded-md object-cover" />
+              <img src={mentor.imageUrl} alt={mentor.name} width="400" height="400" loading="lazy" className="aspect-square w-full rounded-md object-cover" />
               <h2 className="mt-4 text-lg font-semibold">{mentor.name}</h2>
               <p className="text-sm text-accent">{mentor.designation}</p>
               <p className="mt-3 text-sm text-slate-600">{mentor.bio}</p>

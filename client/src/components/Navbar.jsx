@@ -12,7 +12,7 @@ export default function Navbar({ settings }) {
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-3 font-semibold text-slate-950">
-          {settings?.logoUrl ? <img src={settings.logoUrl} alt={settings.siteName} className="h-9 w-9 rounded object-cover" /> : <span className="grid h-9 w-9 place-items-center rounded bg-brand text-white">E</span>}
+          {settings?.logoUrl ? <img src={settings.logoUrl} alt={settings.siteName} width="36" height="36" loading="lazy" className="h-9 w-9 rounded object-cover" /> : <span className="grid h-9 w-9 place-items-center rounded bg-brand text-white">E</span>}
           <span>{settings?.siteName || 'EduNova'}</span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
@@ -23,7 +23,7 @@ export default function Navbar({ settings }) {
           ))}
           <Link to={settings?.ctaLink || '/contact'} className="btn-primary">{settings?.ctaText || 'Book Consultation'}</Link>
         </nav>
-        <button className="rounded-md p-2 md:hidden" onClick={() => setOpen((value) => !value)} aria-label="Toggle menu">
+        <button type="button" className="rounded-md p-2 md:hidden" onClick={() => setOpen((value) => !value)} aria-label="Toggle navigation menu">
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>

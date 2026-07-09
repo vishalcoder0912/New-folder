@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://client-six-liard-52.vercel.app/sitemap.xml

@@ -45,7 +45,7 @@ export default function SectionRenderer({ section, datasets = {} }) {
             </div>
           </motion.div>
           <motion.div {...fade} className="relative">
-            <img src={section.imageUrl} alt={section.title} className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft" />
+            <img src={section.imageUrl} alt={section.title} width="800" height="600" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft" />
             <div className="absolute -bottom-5 left-5 right-5 grid grid-cols-3 gap-2 rounded-lg border border-slate-200 bg-white p-3 shadow-soft">
               {(section.cards || []).slice(0, 3).map((card) => (
                 <div key={card._id || card.title}>
@@ -68,7 +68,7 @@ export default function SectionRenderer({ section, datasets = {} }) {
             <Heading section={section} />
             {section.buttonText && <Link to={section.buttonLink || '#'} className="btn-primary">{section.buttonText}</Link>}
           </div>
-          {section.imageUrl && <img src={section.imageUrl} alt={section.title} className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft" />}
+          {section.imageUrl && <img src={section.imageUrl} alt={section.title} width="800" height="600" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft" />}
         </div>
       </SectionShell>
     );
@@ -108,7 +108,7 @@ export default function SectionRenderer({ section, datasets = {} }) {
         <div className="grid gap-6 md:grid-cols-4">
           {mentors.map((mentor) => (
             <article key={mentor._id} className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-              <img src={mentor.imageUrl} alt={mentor.name} className="aspect-square w-full rounded-md object-cover" />
+              <img src={mentor.imageUrl} alt={mentor.name} width="400" height="400" loading="lazy" className="aspect-square w-full rounded-md object-cover" />
               <h3 className="mt-4 font-semibold">{mentor.name}</h3>
               <p className="text-sm text-accent">{mentor.designation}</p>
               <p className="mt-2 text-sm text-slate-600">{mentor.experience}</p>
@@ -127,7 +127,7 @@ export default function SectionRenderer({ section, datasets = {} }) {
         <div className="grid gap-6 md:grid-cols-3">
           {events.map((event) => (
             <article key={event._id} className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-              <img src={event.imageUrl} alt={event.title} className="h-44 w-full object-cover" />
+              <img src={event.imageUrl} alt={event.title} width="800" height="200" loading="lazy" className="h-44 w-full object-cover" />
               <div className="p-5">
                 <p className="text-sm font-semibold text-accent">{new Date(event.date).toLocaleDateString()} · {event.time}</p>
                 <h3 className="mt-2 text-lg font-semibold">{event.title}</h3>
@@ -149,7 +149,7 @@ export default function SectionRenderer({ section, datasets = {} }) {
           {(datasets.testimonials || []).slice(0, 6).map((item) => (
             <article key={item._id} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
               <div className="flex items-center gap-3">
-                <img src={item.studentImage} alt={item.studentName} className="h-12 w-12 rounded-full object-cover" />
+                <img src={item.studentImage} alt={item.studentName} width="48" height="48" loading="lazy" className="h-12 w-12 rounded-full object-cover" />
                 <div>
                   <h3 className="font-semibold">{item.studentName}</h3>
                   <p className="text-sm text-slate-500">{item.courseName}</p>

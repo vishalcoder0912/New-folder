@@ -14,7 +14,7 @@ export default function TestimonialsPage() {
               <p className="text-warm">{'★'.repeat(item.rating)}</p>
               <p className="mt-3 text-slate-700">"{item.reviewText}"</p>
               <div className="mt-5 flex items-center gap-3">
-                <img src={item.studentImage} alt={item.studentName} className="h-12 w-12 rounded-full object-cover" />
+                <img src={item.studentImage} alt={item.studentName} width="48" height="48" loading="lazy" className="h-12 w-12 rounded-full object-cover" />
                 <div>
                   <p className="font-semibold">{item.studentName}</p>
                   <p className="text-sm text-slate-500">{item.courseName}</p>

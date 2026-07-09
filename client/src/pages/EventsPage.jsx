@@ -13,7 +13,7 @@ export default function EventsPage() {
         {error && <p className="mt-6 text-red-600">{error}</p>}
         {data?.length ? <div className="mt-8 grid gap-6 md:grid-cols-3">{data.map((event) => (
           <article key={event._id} className="overflow-hidden rounded-lg border bg-white shadow-sm">
-            <img src={event.imageUrl} alt={event.title} className="h-48 w-full object-cover" />
+            <img src={event.imageUrl} alt={event.title} width="800" height="220" loading="lazy" className="h-48 w-full object-cover" />
             <div className="p-5">
               <p className="text-sm font-semibold text-accent">{new Date(event.date).toLocaleDateString()} · {event.status}</p>
               <h2 className="mt-2 text-xl font-semibold">{event.title}</h2>
